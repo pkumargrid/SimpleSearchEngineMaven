@@ -19,6 +19,8 @@
         <module name="PackageName">
             <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
         </module>
+        <module name="JavadocMethod"/>
+        <module name="JavadocType"/>
         <module name="IllegalImport">
             <property name="illegalPkgs" value="junit, org.hamcrest"/>
             <property name="illegalClasses" value="java.util.logging.Logger"/>
@@ -63,7 +65,7 @@
         <property name="ignorePattern" value="^ *\* *@see.+$"/>
         <property name="max" value="150"/>
     </module>
-
+    <module name="JavadocPackage"/>
     <module name="NewlineAtEndOfFile">
         <property name="lineSeparator" value="lf"/>
     </module>
