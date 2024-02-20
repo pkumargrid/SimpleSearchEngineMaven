@@ -51,32 +51,19 @@ public final class Stage3 {
         boolean exit = false;
         while (!exit) {
             print();
-            int choice = -1;
-            try {
-                choice = Integer.parseInt(scanner.nextLine());
-            } catch (Exception e) {
-                System.out.println("Incorrect option! Try again.");
+            int choice = Help.getChoice(scanner);
+            if (choice == -1) {
                 continue;
             }
             switch (choice) {
                 case 0 :
-                    System.out.println("Bye!");
-                    exit = true;
+                    exit = Help.choice0();
                     break;
                 case 2 :
-                    System.out.println("=== List of people ===");
-                    listOfPerson.forEach(System.out::println);
+                    Help.choice2(listOfPerson);
                     break;
                 case 1 :
-                    System.out
-                            .println("Enter a name or email to search all suitable people.");
-                    String toSearch = scanner.nextLine();
-                    for (String person : listOfPerson) {
-                        if (person.toLowerCase()
-                                .contains(toSearch.toLowerCase())) {
-                            System.out.println(person);
-                        }
-                    }
+                    Help.choice1(scanner, listOfPerson);
                     break;
                 default:
                     System.out.println("Incorrect option! Try again.");
