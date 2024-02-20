@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -40,7 +41,7 @@ public final class Stage3 {
      * main method working as per the options provided by user.
      * */
     public static void main(final String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         System.out.println("Enter the number of people:");
         int noOfPerson = Integer.parseInt(scanner.nextLine());
         ArrayList<String> listOfPerson = new ArrayList<>();

@@ -1,3 +1,4 @@
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -25,7 +26,7 @@ public final class Stage1 {
      * main method helps in finding word in list of documents.
      */
     public static void main(final String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         String[] userInput = scanner.nextLine().split(" ");
         String toSearch = scanner.nextLine();
         Optional<Integer> op = Stream

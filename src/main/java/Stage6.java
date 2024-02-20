@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -212,7 +213,7 @@ public final class Stage6 {
             listOfPerson.add(sc.nextLine());
         }
         Map<String, Set<Integer>> invertedIndex = createInvertedIndex(listOfPerson);
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         boolean exit = false;
         while (!exit) {
             print();
