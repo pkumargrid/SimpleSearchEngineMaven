@@ -63,11 +63,7 @@ public final class Stage5 {
     public static void main(final String[] args) throws Exception {
         String fileName = args[1];
         String text = readFile(fileName);
-        ArrayList<String> listOfPerson = new ArrayList<>();
-        Scanner scanner = new Scanner(text);
-        while (scanner.hasNext()) {
-            listOfPerson.add(scanner.nextLine());
-        }
+        ArrayList<String> listOfPerson = Help.getListofPeople(text);
         Map<String, ArrayList<Integer>> invertedIndex = new HashMap<>();
         for (int i = 0; i < listOfPerson.size(); i++) {
             String[] personDetails = listOfPerson.get(i).split(" ");
@@ -76,7 +72,7 @@ public final class Stage5 {
                 invertedIndex.get(personDetail).add(i);
             }
         }
-        scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         boolean exit = false;
         while (!exit) {
             print();

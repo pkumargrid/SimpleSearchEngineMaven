@@ -1,4 +1,6 @@
 
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import java.util.ArrayList;
 /**
@@ -49,5 +51,17 @@ public class Help {
                 System.out.println(person);
             }
         }
+    }
+
+    public static ArrayList<String> getListofPeople(String text) {
+        ArrayList<String> listOfPerson =  new ArrayList<>();
+        String charsetName = "UTF-8";
+        byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(bytes);
+        Scanner scanner = new Scanner(inputStream, charsetName);
+        while (scanner.hasNext()) {
+            listOfPerson.add(scanner.nextLine());
+        }
+        return listOfPerson;
     }
 }

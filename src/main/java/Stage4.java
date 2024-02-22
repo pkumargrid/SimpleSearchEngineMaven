@@ -1,3 +1,4 @@
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -58,11 +59,14 @@ public final class Stage4 {
         String fileName = args[1];
         String people = readFile(fileName);
         ArrayList<String> listOfPerson = new ArrayList<>();
-        Scanner sc = new Scanner(people);
-        while (sc.hasNext()) {
-            listOfPerson.add(sc.nextLine());
+        String charsetName = "UTF-8";
+        byte[] bytes = people.getBytes(StandardCharsets.UTF_8);
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(bytes);
+        Scanner scanner = new Scanner(inputStream, charsetName);
+        while (scanner.hasNext()) {
+            listOfPerson.add(scanner.nextLine());
         }
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         boolean exit = false;
         while (!exit) {
             print();

@@ -206,12 +206,8 @@ public final class Stage6 {
 
     public static void main(final String[] args) throws Exception {
         String fileName = args[1];
-        String txt = readFile(fileName);
-        ArrayList<String> listOfPerson = new ArrayList<>();
-        Scanner sc = new Scanner(txt);
-        while (sc.hasNext()) {
-            listOfPerson.add(sc.nextLine());
-        }
+        String text = readFile(fileName);
+        ArrayList<String> listOfPerson = Help.getListofPeople(text);
         Map<String, Set<Integer>> invertedIndex = createInvertedIndex(listOfPerson);
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         boolean exit = false;
