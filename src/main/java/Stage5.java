@@ -81,12 +81,9 @@ public final class Stage5 {
         while (!exit) {
             print();
             int choice = Help.getChoice(scanner);
-            if (choice == -1) {
-                continue;
-            }
             switch (choice) {
                 case 0 :
-                    Help.choice0();
+                    exit = Help.choice0();
                     break;
                 case 2 :
                     Help.choice2(listOfPerson);

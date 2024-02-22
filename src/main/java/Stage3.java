@@ -53,9 +53,6 @@ public final class Stage3 {
         while (!exit) {
             print();
             int choice = Help.getChoice(scanner);
-            if (choice == -1) {
-                continue;
-            }
             switch (choice) {
                 case 0 :
                     exit = Help.choice0();
