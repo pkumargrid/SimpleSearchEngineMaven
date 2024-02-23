@@ -33,7 +33,7 @@ public final class Stage2 {
             final String toSearch, final ArrayList<String> listOfPerson) {
         List<String> matchingLines = new ArrayList<>();
         for (String person : listOfPerson) {
-            if (person.contains(toSearch)) {
+            if (person.toLowerCase().contains(toSearch)) {
                 matchingLines.add(person);
             }
         }
@@ -46,17 +46,17 @@ public final class Stage2 {
 
     public static void main(final String[] args) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        System.out.println("Enter the number of people:");
+//        System.out.println("Enter the number of people:");
         int noOfPerson = Integer.parseInt(scanner.nextLine());
         ArrayList<String> listOfPerson = new ArrayList<>();
-        System.out.println("Enter all people:");
+//        System.out.println("Enter all people:");
         while (noOfPerson-- > 0) {
             listOfPerson.add(scanner.nextLine());
         }
-        System.out.println("Enter the number of search queries:");
+//        System.out.println("Enter the number of search queries:");
         int queries = Integer.parseInt(scanner.nextLine());
         while (queries-- > 0) {
-            System.out.println("Enter data to search people:");
+//            System.out.println("Enter data to search people:");
             String wordToSearch = scanner.nextLine();
             List<String> find =
                     getWordsThatMatch(wordToSearch.toLowerCase(), listOfPerson);

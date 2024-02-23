@@ -17,8 +17,7 @@ public class Help {
         int choice = -1;
         try {
             choice = Integer.parseInt(scanner.nextLine());
-        } catch (Exception e) {
-            System.out.println("Incorrect option! Try again.");
+        } catch (Exception ignored) {
         }
         return choice;
     }
@@ -43,7 +42,7 @@ public class Help {
      * @param listOfPerson list of person in which word has to be searched
      */
     public static void choice1(Scanner scanner, ArrayList<String> listOfPerson) {
-        System.out.println("Enter a name or email to search all suitable people.");
+//        System.out.println("Enter a name or email to search all suitable people.");
         String toSearch = scanner.nextLine();
         for (String person : listOfPerson) {
             if (person.toLowerCase()
@@ -52,6 +51,12 @@ public class Help {
             }
         }
     }
+
+    /**
+     *
+     * @param text takes list of persons as string
+     * @return returns the persons as an arraylist
+     */
 
     public static ArrayList<String> getListofPeople(String text) {
         ArrayList<String> listOfPerson =  new ArrayList<>();

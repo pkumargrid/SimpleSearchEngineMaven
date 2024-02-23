@@ -45,7 +45,7 @@ public final class Stage5 {
      */
 
     public static void print() {
-        System.out.println("==Menu==");
+        System.out.println("=== Menu ===");
         System.out.println("1. Find a person");
         System.out.println("2. Print all people");
         System.out.println("0. Exit");
@@ -68,14 +68,14 @@ public final class Stage5 {
         for (int i = 0; i < listOfPerson.size(); i++) {
             String[] personDetails = listOfPerson.get(i).split(" ");
             for (String personDetail : personDetails) {
-                invertedIndex.putIfAbsent(personDetail, new ArrayList<>());
-                invertedIndex.get(personDetail).add(i);
+                invertedIndex.putIfAbsent(personDetail.toLowerCase(), new ArrayList<>());
+                invertedIndex.get(personDetail.toLowerCase()).add(i);
             }
         }
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         boolean exit = false;
         while (!exit) {
-            print();
+//            print();
             int choice = Help.getChoice(scanner);
             switch (choice) {
                 case 0 :
@@ -85,10 +85,10 @@ public final class Stage5 {
                     Help.choice2(listOfPerson);
                     break;
                 case 1 :
-                    System.out.println("Enter a name or email to search all suitable people.");
+//                    System.out.println("Enter a name or email to search all suitable people.");
                     String toSearch = scanner.nextLine();
-                    if (invertedIndex.get(toSearch) != null) {
-                        ArrayList<Integer> indices = invertedIndex.get(toSearch);
+                    if (invertedIndex.get(toSearch.toLowerCase()) != null) {
+                        ArrayList<Integer> indices = invertedIndex.get(toSearch.toLowerCase());
                         for (int index : indices) {
                             System.out.println(listOfPerson.get(index));
                         }

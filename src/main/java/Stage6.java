@@ -212,7 +212,7 @@ public final class Stage6 {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         boolean exit = false;
         while (!exit) {
-            print();
+//            print();
             int choice = Help.getChoice(scanner);
             switch (choice) {
                 case 0 :
@@ -222,9 +222,9 @@ public final class Stage6 {
                     Help.choice2(listOfPerson);
                     break;
                 case 1 :
-                    System.out.println("Select a matching strategy: ALL, ANY, NONE");
+//                    System.out.println("Select a matching strategy: ALL, ANY, NONE");
                     String strategy = scanner.nextLine();
-                    System.out.println("Enter a name or email to search all suitable people.");
+//                    System.out.println("Enter a name or email to search all suitable people.");
                     String toSearch = scanner.nextLine();
                     Strategy strat = null;
                     if (strategy.equals("ALL")) {

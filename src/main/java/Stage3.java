@@ -42,30 +42,17 @@ public final class Stage3 {
      * */
     public static void main(final String[] args) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        System.out.println("Enter the number of people:");
+//        System.out.println("Enter the number of people:");
         int noOfPerson = Integer.parseInt(scanner.nextLine());
         ArrayList<String> listOfPerson = new ArrayList<>();
-        System.out.println("Enter all people:");
+//        System.out.println("Enter all people:");
         while (noOfPerson-- > 0) {
             listOfPerson.add(scanner.nextLine());
         }
         boolean exit = false;
         while (!exit) {
-            print();
-            int choice = Help.getChoice(scanner);
-            switch (choice) {
-                case 0 :
-                    exit = Help.choice0();
-                    break;
-                case 2 :
-                    Help.choice2(listOfPerson);
-                    break;
-                case 1 :
-                    Help.choice1(scanner, listOfPerson);
-                    break;
-                default:
-                    System.out.println("Incorrect option! Try again.");
-            }
+//            print();
+            exit = Stage4.isExit(listOfPerson, scanner, exit);
         }
 
     }

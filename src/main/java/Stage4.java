@@ -42,7 +42,7 @@ public final class Stage4 {
      * displays menu to user to choose from.
      */
     public static void print() {
-        System.out.println("==Menu==");
+        System.out.println("=== Menu ===");
         System.out.println("1. Find a person");
         System.out.println("2. Print all people");
         System.out.println("0. Exit");
@@ -69,22 +69,35 @@ public final class Stage4 {
         scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         boolean exit = false;
         while (!exit) {
-            print();
-            int choice = Help.getChoice(scanner);
-            switch (choice) {
-                case 0 :
-                    exit = Help.choice0();
-                    break;
-                case 2 :
-                    Help.choice2(listOfPerson);
-                    break;
-                case 1 :
-                    Help.choice1(scanner, listOfPerson);
-                    break;
-                default:
-                    System.out.println("Incorrect option! Try again.");
-            }
+//            print();
+            exit = isExit(listOfPerson, scanner, exit);
         }
         scanner.close();
+    }
+
+    /**
+     *
+     * @param listOfPerson represents the database
+     * @param scanner for reading input from user
+     * @param exit to mark exit
+     * @return the boolean value of exit
+     */
+
+    static boolean isExit(ArrayList<String> listOfPerson, Scanner scanner, boolean exit) {
+        int choice = Help.getChoice(scanner);
+        switch (choice) {
+            case 0 :
+                exit = Help.choice0();
+                break;
+            case 2 :
+                Help.choice2(listOfPerson);
+                break;
+            case 1 :
+                Help.choice1(scanner, listOfPerson);
+                break;
+            default:
+                System.out.println("Incorrect option! Try again.");
+        }
+        return exit;
     }
 }

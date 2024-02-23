@@ -19,7 +19,6 @@ public final class Stage1 {
     private Stage1() {
 
     }
-
     /**
      *
      * @param args
