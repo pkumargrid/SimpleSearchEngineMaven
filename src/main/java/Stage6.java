@@ -59,10 +59,10 @@ final class ConcreteImplementation {
         Set<Integer> lineIndex = new HashSet<>();
         boolean firstTimeEntering = true;
         for (String personDetail : toSearch.split(" ")) {
+            personDetail = personDetail.toLowerCase();
             if (invertedIndex.get(personDetail) == null) {
                 continue;
             }
-            personDetail = personDetail.toLowerCase();
             if (firstTimeEntering) {
                 firstTimeEntering = false;
                 lineIndex.addAll(invertedIndex.get(personDetail));
@@ -172,7 +172,7 @@ public final class Stage6 {
      */
 
     public static void print() {
-        System.out.println("==Menu==");
+        System.out.println("=== Menu ===");
         System.out.println("1. Find a person");
         System.out.println("2. Print all people");
         System.out.println("0. Exit");
@@ -226,16 +226,13 @@ public final class Stage6 {
                     String strategy = scanner.nextLine();
 //                    System.out.println("Enter a name or email to search all suitable people.");
                     String toSearch = scanner.nextLine();
-                    Strategy strat = null;
-                    if (strategy.equals("ALL")) {
-                        strat = ConcreteImplementation::findAll;
-                    } else if (strategy.equals("ANY")) {
-                        strat = ConcreteImplementation::findAny;
-
-                    } else {
-                        strat = ConcreteImplementation::findNone;
-                    }
-                    strat.find(toSearch, invertedIndex, listOfPerson).forEach(System.out::println);
+                    Strategy strategyImplementation = switch (strategy) {
+                        case "ALL" -> ConcreteImplementation::findAll;
+                        case "ANY" -> ConcreteImplementation::findAny;
+                        case "NONE" -> ConcreteImplementation::findNone;
+                        default -> throw new IllegalStateException("Unexpected value: " + strategy);
+                    };
+                    strategyImplementation.find(toSearch, invertedIndex, listOfPerson).forEach(System.out::println);
                     break;
                 default :
                     System.out.println("Incorrect option! Try again.");
